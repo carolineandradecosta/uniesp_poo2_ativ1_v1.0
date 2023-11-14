@@ -4,16 +4,15 @@ import br.com.caroline.composicao.Endereco;
 import br.com.caroline.composicao.Cargo;
 
 import java.time.LocalDate;
-import java.time.Month;
 
 public class Funcionario extends Pessoa{
     private int matricula;
     private Cargo cargo;
     private double salario;
-    private String dataAdmissao;
+    private LocalDate dataAdmissao;
 
     public void cadastrarFuncionario(int matricula, Cargo cargo,
-                                     double salario, String dataAdmissao,
+                                     double salario, LocalDate dataAdmissao,
                                      String nome, LocalDate dataNascimento,
                                      Endereco endereco, String telsContato) {
             this.matricula = matricula;
@@ -39,10 +38,10 @@ public class Funcionario extends Pessoa{
         public void setMatricula(int matricula) {
             this.matricula = matricula;
         }
-        public String getDataAdmissao() {
+        public LocalDate getDataAdmissao() {
             return dataAdmissao;
         }
-        public void setDataAdmissao(String dataAdmissao) {
+        public void setDataAdmissao(LocalDate dataAdmissao) {
             this.dataAdmissao = dataAdmissao;
         }
         public Cargo getCargo() {
