@@ -9,30 +9,36 @@ public class ListaDeTelefonesNaoOrdenados {
 
     // estrutura de dados de forma básica, sem usar a api List do java
     private Telefone[] telefones;
+    // variável tamanho para realizar o controle do tamanho
     private int tamanho;
 
     // é static para não permitir instâncias
+    // a capacidade pode ser alterada depois
     private static final int CAPACIDADE_PADRAO = 10;
-    int indexTel;
 
+    // Construtor da lista
     public ListaDeTelefonesNaoOrdenados() {
         this.telefones = new Telefone[CAPACIDADE_PADRAO];
         this.tamanho = 0;
-        indexTel = -1;
     }
 
+    // Verificador de vazio
     public boolean isEmpty() {
         return this.tamanho == 0;
     }
 
+    // Adicionando um telefone a lista
     public void addTelefone(Telefone telefone) {
-
-
-        telefones[indexTel++] = telefone;
-        indexTel = indexTel + 1;
-        this.tamanho = tamanho + 1;
+        // Caso a CAPACIDADE_PADRAO seja alterada, o length vai pegar a capacidade atual, em tempo de execução
+        if (tamanho < telefones.length) {
+            // o tamanho já é o index, portanto não precisamos trabalhar com index também
+            telefones[tamanho] = telefone;
+            // incremento do tamanho
+            this.tamanho = tamanho + 1;
+        }
     }
 
+    // Para remover um telefone, precisar primeiro buscar o index
     public void removerTelefone(Telefone telefone) {
         int index = buscarTelefoneIndex(telefone);
         if (index != -1) {
@@ -43,22 +49,30 @@ public class ListaDeTelefonesNaoOrdenados {
         }
     }
 
-        private int  buscarTelefoneIndex(Telefone telefone) {
-            for(int i = 0; i < tamanho; i++) {
-                if(telefones[i].equals(telefone)) {
-                    return i;
-                }
+    // Encontra o index do telefone que se deseja remover
+    private int buscarTelefoneIndex(Telefone telefone) {
+        for (int i = 0; i < tamanho; i++) {
+            // verifica se os telefones são iguais
+            if (telefones[i].equals(telefone)) {
+                // retorna o index se forem iguais
+                return i;
             }
-            return -1;
         }
+        // retorna -1 se não encontrar
+        System.out.println("Telefone não encontrado!");
+        return -1;
+    }
 
+    // Imprime os objetos que colocamos o "toString" lá na classe Telefone
     public void exibirTelefones() {
 
         //CRIE: a validação de vazio, se tiver vazio, nem entre no "for"
+        // criei usando o if (!isEmpty())
 
-        for(int i = 0; i < tamanho; i++) {
-            System.out.println(telefones[i]);
+        if (!isEmpty()) {
+            for (int i = 0; i < tamanho; i++) {
+                System.out.println(telefones[i]);
+            }
         }
     }
-
 }

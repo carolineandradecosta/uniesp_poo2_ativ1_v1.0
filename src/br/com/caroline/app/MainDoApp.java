@@ -45,9 +45,9 @@ public class MainDoApp {
 		Telefone telefone2 = new Telefone("85", "99804516");
 		Telefone telefone3 = new Telefone("87", "96547812");
 
-//		minhaLista.addTelefone(telefone1);
-//		minhaLista.addTelefone(telefone2);
-//		minhaLista.addTelefone(telefone3);
+		minhaLista.addTelefone(telefone1);
+		minhaLista.addTelefone(telefone2);
+		minhaLista.addTelefone(telefone3);
 
 		System.out.println("Telefones antes da remoção:");
 		minhaLista.exibirTelefones();
@@ -59,13 +59,12 @@ public class MainDoApp {
 		minhaLista.exibirTelefones();
 
 		// Exibe os telefones se a lista não estiver vazia
-		if (!minhaLista.isEmpty()) {
-			System.out.println("Telefones na lista:");
-			minhaLista.exibirTelefones();
-		} else {
-			System.out.println("A lista de telefones está vazia.");
-		}
+//		if (!minhaLista.isEmpty()) {
+//			System.out.println("Telefones na lista:");
+//			minhaLista.exibirTelefones();
+//		} else {
+//			System.out.println("A lista de telefones está vazia.");
+//		}
 
 	}
-
 }
